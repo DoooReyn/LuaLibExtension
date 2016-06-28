@@ -12,6 +12,6 @@ lua 库扩展
 - `string`
 - `math`
 - `date`
-- `color` *[ Incompleted ]*
-- `log` *[ TODO ]*
-- `event` *[ Incompleted ]*
+- `color` **[ Incompleted ]**
+- `log` **[ TODO ]**
+- `event` **[ Incompleted ]**
