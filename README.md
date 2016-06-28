@@ -1,5 +1,5 @@
-# LuaLibExtend
-lua 库扩展
+# LuaLibExtension
+> lua 库扩展
 
 - `OOP`
   - `class`
