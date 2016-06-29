@@ -62,4 +62,21 @@ function Log:writeLog(text, log_level)
     fp:close()
 end
 
+function Log:info(text)
+    self:writeLog(text, Log.LEVEL.LOG_INFO)
+end
+
+function Log:debug(text)
+    self:writeLog(text, Log.LEVEL.LOG_DEBUG)
+end
+
+function Log:warning(text)
+    self:writeLog(text, Log.LEVEL.LOG_WARNING)
+end
+
+function Log:error(text)
+    self:writeLog(text, Log.LEVEL.LOG_ERROR)
+end
+
+
 return Log
