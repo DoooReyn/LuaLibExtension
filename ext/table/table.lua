@@ -426,3 +426,23 @@ function table.reverse(tab)
 	end
 	return ret
 end
+
+function table.getFirstKey(tab)
+	local k, v = next(tab)
+	return k
+end
+
+function table.getFirstValue(tab)
+	local k, v = next(tab)
+	return v
+end
+
+function table.getLastKey(tab)
+	local k, v = next(tbl, table.nums(tab) - 1)
+	return k
+end
+
+function table.getLastValue(tab)
+	local k, v = next(tbl, table.nums(tab) - 1)
+	return v
+end
