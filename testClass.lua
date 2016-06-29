@@ -4,7 +4,9 @@
 --
 require('init')
 
-local obj = class()
+local base = class()
+
+local obj = class('OBJ', base)
 obj:output()
 console_colorful("below are property methods")
 print(obj:classname())				-- obj
@@ -20,6 +22,7 @@ print(obj:replaceProperty('a', 1))	-- 0 => 1
 print(obj:property('a'))			-- 1
 print(obj:removeProperty('a'))		-- true
 print(obj:property('a'))			-- nil
+console_colorful("set obj.removeProperty to nil")
 obj.removeProperty = nil
 print(obj:removeProperty('a'))		-- false
 console_colorful("set obj.property to nil")
@@ -28,9 +31,10 @@ console_colorful("but get obj.property " .. tostring(obj.property))
 console_colorful("unset property")
 obj:unset('property')
 console_colorful("and get obj.property " .. tostring(obj.property))
--- print(obj:property('a'))			-- raise error
+-- print(obj:property('a'))			-- `prperty` has been removed from self and supers, so it will raise error here.
 
-local obj = proto_class({__cname='Obj'})
+print('\n\n')
+local obj = proto_class({__cname='Obj'}, base)
 obj:output()
 console_colorful("below are property methods")
 print(obj:classname())				-- obj
@@ -47,5 +51,5 @@ print(obj:property('a'))			-- 1
 print(obj:removeProperty('a'))		-- true
 print(obj:property('a'))			-- nil
 print(obj.removeProperty)
-obj.removeProperty = nil
+obj.removeProperty = nil            -- this is not safe if you want to remove it from self and supers, pls use `unset`
 print(obj:removeProperty('a'))		-- false
