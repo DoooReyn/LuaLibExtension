@@ -50,7 +50,7 @@ function Log:writeLog(text, log_level)
     local LOG_CONTENT = {}
     for i=1, #LOG_FORMAT do
         local item = LOG_FORMAT[i]
-        local str = string.format('[%s] : %s ', item[1], item[2])
+        local str = string.format('[%-6s] : %s ', item[1], item[2])
         LOG_CONTENT[#LOG_CONTENT+1] = str
     end
     local content = table.concat(LOG_CONTENT, '\n') .. '\n\n\n'
